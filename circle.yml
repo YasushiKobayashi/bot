@@ -1,0 +1,15 @@
+machine:
+  timezone: Asia/Tokyo
+  node:
+    version:  6.7.0
+  post:
+    - npm install -g npm@3
+
+dependencies:
+  pre:
+    - npm install -g hubot yo generator-hubot coffee-script
+    - cd bot && npm install
+test:
+  override:
+    - cd bot && bin/hubot
+    - exit 0
