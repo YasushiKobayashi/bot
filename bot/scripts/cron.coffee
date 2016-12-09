@@ -15,7 +15,7 @@ module.exports = (robot) ->
     exec command, (error, stdout, stderr) ->
       send '#analytics-bot', error if error?
       if stdout
-        ga_message("本日", stdout)
+        ga_message("今日の", stdout)
       send '#analytics-bot', stderr if stderr?
   ).start()
 
@@ -42,8 +42,8 @@ module.exports = (robot) ->
   ga_message = (time, obj) ->
     #json形式の文字列をjsonにパースする
     json = JSON.parse(obj)
-    url = "http://bigissue-online.jp/"
-    message = "#{time} のアクセス解析の結果です。\n\n"
+    url = "https://yasushikobayashi.info/"
+    message = "#{time} のアクセス解析の結果だよ。\n\n"
     # message += "合計　#{obj.totalsForAllResults.ga\\:pageviews} PV \n"
     number = 0
     for content, index in json.rows
@@ -52,7 +52,10 @@ module.exports = (robot) ->
       m = Math.floor(time/60)
       s = time-(m*60)
       avg = "#{m}分 #{s}秒"
-      message += "#{number}位　#{content[1]}　\n
-        #{content[2]} PV ・ 滞在時間： #{avg} \n　
+      if number == 1
+        message = "最高かよ！　#{content[1]}"
+      else
+        message = "#{number}位　#{content[1]}"
+      message += "#{content[2]} PV ・ 滞在時間： #{avg} \n　
         #{url}#{content[0]}\n"
     send '#analytics-bot', message

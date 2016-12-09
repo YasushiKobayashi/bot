@@ -10,3 +10,5 @@ module.exports = (robot) ->
         stdout = JSON.parse(stdout)
         stdout += '\nhttps://ap-northeast-1.console.aws.amazon.com/codedeploy/home?region=ap-northeast-1#/deployments/'+stdout['deploymentId']
         msg.send stdout
+
+  # サーバーの増築
