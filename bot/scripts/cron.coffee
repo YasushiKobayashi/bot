@@ -53,9 +53,9 @@ module.exports = (robot) ->
       s = time-(m*60)
       avg = "#{m}分 #{s}秒"
       if number == 1
-        message = "最高かよ！　#{content[1]}"
+        message += "最高かよ！　#{content[1]}"
       else
-        message = "#{number}位　#{content[1]}"
+        message += "#{number}位　#{content[1]}"
       message += "#{content[2]} PV ・ 滞在時間： #{avg} \n　
         #{url}#{content[0]}\n"
     send '#analytics-bot', message

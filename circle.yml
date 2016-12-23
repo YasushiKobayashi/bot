@@ -11,5 +11,5 @@ dependencies:
     - cd bot && npm install
 test:
   override:
-    - cd bot && bin/hubot
+    - cd bot && gulp lint
     - exit 0

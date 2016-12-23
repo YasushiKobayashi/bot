@@ -1,0 +1,24 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "* hubotの開発環境をvagrant化 * nodeは6.7.0を使用 * `hubot-slack` は~3.4.2で固定する（cronなど、他のnodeのパッケージが動かないことがあるため） * 使用サーバーは `52.197.96.202` の `t2.nano` * botのデプロイはcircle.ci経由で行なう",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-coffeelint": "^0.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attela-inc/bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/attela-inc/bot/issues"
+  },
+  "homepage": "https://github.com/attela-inc/bot#readme"
+}

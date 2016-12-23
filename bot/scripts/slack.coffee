@@ -7,8 +7,10 @@ module.exports = (robot) ->
       msg.send error if error?
       msg.send stderr if stderr?
       if stdout?
-        stdout = JSON.parse(stdout)
-        stdout += '\nhttps://ap-northeast-1.console.aws.amazon.com/codedeploy/home?region=ap-northeast-1#/deployments/'+stdout['deploymentId']
+        stdout = JSON.parse(stdout)+'\n'
+        stdout += 'https://ap-northeast-1.console.aws.amazon.com/codedeploy/home
+        ?region=ap-northeast-1#/deployments/'+stdout['deploymentId']
         msg.send stdout
 
   # サーバーの増築
+  # deploy用のエンドポイント
