@@ -1,15 +1,15 @@
 machine:
   timezone: Asia/Tokyo
   node:
-    version:  6.7.0
+    version: 6.7.0
   post:
     - npm install -g npm@3
 
 dependencies:
   pre:
-    - npm install -g hubot yo generator-hubot coffee-script
-    - cd bot && npm install
+    - npm install -g gulp coffee-script
+    - npm install
 test:
   override:
-    - cd bot && gulp lint
+    - gulp lint
     - exit 0
