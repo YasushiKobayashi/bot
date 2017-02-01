@@ -42,7 +42,7 @@ module.exports = (robot) ->
 
 
 module.exports = (robot) ->
-  robot.respond /help/, (msg) ->
+  robot.respond /helpme/, (msg) ->
     message = "deploy_blog \n"
     message += "deploy_blog_server \n"
     message += "deploy_bot \n"
