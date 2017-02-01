@@ -11,5 +11,5 @@ dependencies:
     - npm install
 test:
   override:
-    - gulp lint
+    - npm test
     - exit 0

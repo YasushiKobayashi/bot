@@ -2,7 +2,7 @@
   "name": "bot",
   "version": "1.0.0",
   "author": "ptpadan@gmail.com",
-  "description": "coffee.scriptのlint",
+  "description": "lint coffee.script",
   "repository": {
     "url": "https://github.com/YasushiKobayashi/bot",
     "type": "git"
