@@ -1,7 +1,7 @@
 exec = require('child_process').exec
 module.exports = (robot) ->
   robot.respond /deploy_blog_application/, (msg) ->
-    command = "cd ~/shell/deploy_blog.sh"
+    command = "sh ~/shell/deploy_blog.sh"
     msg.send "Command: #{command}"
     exec command, (error, stdout, stderr) ->
       msg.send error if error?
@@ -9,7 +9,7 @@ module.exports = (robot) ->
       msg.send stdout if stdout?
 
   robot.respond /deploy_blog_server/, (msg) ->
-    command = "cd ~/shell/deploy_blog_server.sh"
+    command = "sh ~/shell/deploy_blog_server.sh"
     msg.send "Command: #{command}"
     exec command, (error, stdout, stderr) ->
       msg.send error if error?
