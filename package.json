@@ -9,10 +9,11 @@
   },
   "main": "gulpfile.js",
   "dependencies": {
+  },
+  "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-coffeelint": "^0.6.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "gulp lint"
   },

@@ -8,6 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.box_url = "https://dl.dropboxusercontent.com/u/3657281/centos64_ja.box"
   config.vm.box_url = "../centos64_ja.box"
   config.vm.synced_folder "..", "/home/vagrant/bot", create: true, owner: "vagrant", group: "vagrant"
+  config.vm.synced_folder "../../ansible_blog", "/home/vagrant/ansible", create: true, owner: "vagrant", group: "vagrant"
   config.vbguest.auto_update = false
   config.vbguest.no_remote = true
 
@@ -19,6 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
 
+  # set up ansible
   # config.vm.provision "shell", privileged: false do |shell|
   #   shell.path = "setup.sh"
   #   shell.args = 'vagrant'
