@@ -17,3 +17,7 @@ node_modules
 
 *-bot/
 env/
+
+.hubot_history
+js/
+scripts/

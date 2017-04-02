@@ -7,9 +7,9 @@ machine:
 
 dependencies:
   pre:
-    - npm install -g gulp coffee-script
     - npm install
 test:
   override:
-    - npm test
+    - npm run lint -s
+    - npm run build -s
     - exit 0

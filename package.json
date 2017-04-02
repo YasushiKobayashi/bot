@@ -1,30 +1,47 @@
 {
   "name": "bot",
   "version": "1.0.0",
-  "author": "ptpadan@gmail.com",
+  "author": "",
   "description": "lint coffee.script",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YasushiKobayashi/bot/issues"
+  },
+  "homepage": "https://github.com/YasushiKobayashi/bot#readme",
   "repository": {
-    "url": "https://github.com/YasushiKobayashi/bot",
-    "type": "git"
+    "type": "git",
+    "url": "git+https://github.com/YasushiKobayashi/bot.git"
+  },
+  "scripts": {
+    "start": "sh start.sh",
+    "dev": "gulp",
+    "build": "gulp build",
+    "lint": "gulp lint"
   },
   "main": "gulpfile.js",
   "dependencies": {
+    "co": "^4.6.0",
+    "googleapis": "^18.0.0"
   },
   "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-register": "^6.24.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.1.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
     "gulp": "^3.9.1",
-    "gulp-coffeelint": "^0.6.0"
-  },
-  "scripts": {
-    "test": "gulp lint"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/attela-inc/bot.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/attela-inc/bot/issues"
-  },
-  "homepage": "https://github.com/attela-inc/bot#readme"
+    "gulp-babel": "^6.1.2",
+    "gulp-coffeelint": "^0.6.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-uglify": "^2.1.2",
+    "vinyl-source-stream": "^1.1.0",
+    "vinyl-transform": "^1.0.0"
+  }
 }

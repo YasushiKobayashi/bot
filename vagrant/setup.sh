@@ -31,5 +31,3 @@ else
   sudo service redis start
   sudo chkconfig redis on
 fi
-
-echo 'install awscli'
