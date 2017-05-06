@@ -3,7 +3,6 @@ import analytics from '../../js/analytics';
 import envKey from '../../env/slack.json';
 
 const viewId = envKey.blog_view_id;
-
 const media = {
   type: 'blog',
   url: 'https://yasushikobayashi.info',
