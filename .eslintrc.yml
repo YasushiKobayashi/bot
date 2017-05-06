@@ -1,5 +1,5 @@
 ---
-  extends: eslint-config-airbnb
+  extends: airbnb
 
   env:
     browser: true
@@ -19,6 +19,7 @@
 
   plugins:
     - react
+    - jsx-a11y
 
   rules:
     object-shorthand: 0
