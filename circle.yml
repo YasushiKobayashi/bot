@@ -8,8 +8,10 @@ dependencies:
     - npm i -g yarn
     - yarn
     - touch env/google_api.json
+    - echo {} > env/google_api.json
 
 test:
   override:
+    # - npm run lint
     - npm run build
     - exit 0
