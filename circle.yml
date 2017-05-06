@@ -10,6 +10,6 @@ dependencies:
     - npm install
 test:
   override:
-    - npm run lint -s
-    - npm run build -s
+    - npm run lint
+    - npm run build
     - exit 0

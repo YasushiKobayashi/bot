@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - 6.7.0
+
+before_script:
+  - npm i -g yarn
+  - yarn
+
+script:
+  - npm run lint
+  - npm run build
+
+notifications:
+  slack:
+    secure: f5YdyuMXoVU4QywzVQGZqzotb1tUQLxzXqwJwpmMwVszfn7ZtV2p4AryTbRVePOuf31vKLmCJySEYyuIc/A5TBSaQlmJJBfqdVp9n5dA1iJOnyJNU8GCDWIO5XXDYQqE4LBvqaqzGSAv8MWr4q/W2xkBpPipoAkxWybaSmyjJLcwk+n3xZD/VbBJ51Qq1amI8LB2xL8s6btBpOt4X8TNbyL2vBKXRLzlNP9wlkImhvIvmYQ55nT9f2CCN6TSTowc0bWhwZSZj8gzyVet4rkSWgVmY11cIfL34w+WXvSkXvCMXXSpCcDmc+yBw2A0xgnGn2fH/NzFQ+so6BWB532J3G2mcxVjf84mj4eSA3Dqq/sHymFc2Mvbu2CV8rIpAPQ3jmZ1jbR+RZG7yzzNXUpNefA4/Krc9rUAbVFgfpCTwUMt//pwyUN9FuwplWrI5kjKP6F96LMHtBqBo0aQea05oWhELgF5yd/DwVpjcwe6WxDTvO+nscty5mnTw4Ta5CzqQ8/3tcG0e3CjX3GVhIvros0OoY/rH7boQzxua8vtGmqwikDTvbA4AIkBi7HJu/x6NhwHEWTpv1/nSB5Yx5tLo/j2DROKrkBXJeePzWFWboP1gSiHyLdSs8mlxss/G/nlgZ4980pv6bT4GVoXmJPb7poUoh5kgTUiIbky776JoAM=

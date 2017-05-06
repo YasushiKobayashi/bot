@@ -1,17 +1,16 @@
-require('babel-polyfill');
-const google = require('googleapis');
-const key = require('../env/google_api.json');
-const envKey = require('../env/slack.json');
-const co = require('co');
+import 'babel-polyfill';
+import google from 'googleapis';
+
+import key from '../env/google_api.json';
 
 const jwtClient = new google.auth.JWT(key.client_email, null, key.private_key, ['https://www.googleapis.com/auth/analytics'], null);
 const analyticsApi = google.analytics('v3');
 
 const authTask = () => {
   return new Promise((resolve, reject) => {
-    jwtClient.authorize((err, result) => {
-      if (err) {
-        reject(err);
+    jwtClient.authorize((error, result) => {
+      if (error) {
+        reject(error);
       } else {
         resolve(result);
       }
@@ -31,9 +30,9 @@ const gaTask = (token, viewId, type) => {
       'max-results': 15,
       sort: '-ga:pageviews',
       access_token: token,
-    }, (err, result) => {
-      if (err) {
-        reject(err);
+    }, (error, result) => {
+      if (error) {
+        reject(error);
       } else if (result) {
         resolve(result);
       }
@@ -58,49 +57,30 @@ const gaMessage = (type, obj, url) => {
   return message;
 };
 
-const analytics = (type, media) => {
-  const viewId = envKey.bigissue_view_id;
-  return co(function* () {
-    const result = yield authTask();
-    const getApi = yield gaTask(result.access_token, viewId, type);
-    return yield gaMessage(type, getApi, media.url);
-  }).catch((err) => {
-    console.log(err);
+const analytics = (type, media, viewId) => {
+  return new Promise((resolve, reject) => {
+    authTask().then((result) => {
+      return gaTask(result.access_token, viewId, type);
+    })
+   .then((result) => {
+     return gaMessage(type, result, media.url);
+   })
+   .then((result) => {
+     resolve(result);
+   })
+   .catch((error) => {
+     console.log('error');
+     reject(error);
+   });
   });
-  // authTask().then((result) => {
-  //   return gaTask(result.access_token, viewId, type);
-  // })
-  // .then((result) => {
-  //   return gaMessage(type, result, media.url);
-  // })
-  // .then((result) => {
-  //   return result;
-  // })
-  // .catch((err) => {
-  //   console.log('err');
-  //   console.log(err);
-  // });
 };
-// //
-//
-//
-// const analytics = (type, media) => {
-//   const viewId = envKey.bigissue_view_id;
-//   Promise.resolve().then(() => {
-//     return authTask();
-//   }).then((result) => {
-//     return gaTask(result.access_token, viewId, type);
-//   }).then((result) => {
-//     return gaMessage(type, result, media.url);
-//   });
+// const today = {
+//   startDate: '1daysAgo',
+//   time: '昨日',
 // };
-const today = {
-  startDate: '30daysAgo',
-  time: '今月',
-};
-const media = {
-  type: 'blog',
-  url: 'https://yasushikobayashi.info',
-};
-console.log(analytics(today, media));
+// const media = {
+//   type: 'blog',
+//   url: 'https://yasushikobayashi.info',
+// };
+// console.log(analytics(today, media, '79127044'));
 module.exports = analytics;

@@ -1,5 +1,8 @@
-const CronJob = require('cron').CronJob;
-const analytics = require('../../js/analytics');
+import { CronJob } from 'cron';
+import analytics from '../../js/analytics';
+import envKey from '../../env/slack';
+
+const viewId = envKey.blog_view_id;
 
 const media = {
   type: 'blog',
@@ -8,8 +11,6 @@ const media = {
 
 module.exports = (robot) => {
   const sendMessage = (channel, message) => {
-    console.log('hoge');
-    console.log(message);
     robot.send({
       room: channel,
     }, message);
@@ -17,16 +18,19 @@ module.exports = (robot) => {
 
   const analyticsCron = (timing, type) => {
     new CronJob(timing, () => {
+      console.log('start');
       return new Promise((resolve, reject) => {
-        sendMessage('#analytics', analytics(type, media), (err, result) => {
-          if (err) {
-            reject(err);
-          } else if (result) {
-            resolve(result);
-          }
+        console.log('promise');
+        analytics(type, media, viewId)
+        .then((result) => {
+          console.log(result);
+          resolve(sendMessage('#analytics', result));
+        })
+        .catch((err) => {
+          console.log(err);
+          reject(err);
         });
       });
-      // sendMessage('#analytics', analytics(type, media));
     }).start();
   };
 
@@ -43,7 +47,7 @@ module.exports = (robot) => {
     time: '今月',
   };
 
-  analyticsCron('* * * * * *', today);
+  analyticsCron('*/5 * * * * *', today);
   analyticsCron('0 35 11 * * *', week);
   analyticsCron('0 55 11 * * *', month);
 };
