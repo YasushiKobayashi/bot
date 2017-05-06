@@ -1,0 +1,29 @@
+---
+  extends: eslint-config-airbnb
+
+  env:
+    browser: true
+    node: true
+    es6: true
+
+  parserOptions:
+   ecmaVersion: 6
+   sourceType: "module"
+   ecmaFeatures:
+    jsx: true
+
+  globals:
+    __DEV__: true
+    __SERVER__: true
+
+  rules:
+    jsx-quotes: 0
+    arrow-body-style: 0
+    object-shorthand: 0
+    no-shadow: 0
+    import/no-named-as-default: 0
+    import/no-named-as-default-member: 0
+    class-methods-use-this: 0
+    no-console: 0
+    no-unresolved: 0
+    import/no-unresolved: 0
