@@ -1,0 +1,5 @@
+linter:
+  eslint:
+    options:
+      config: .eslintrc.yml
+      dir: es,bot/es

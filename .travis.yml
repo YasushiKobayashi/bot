@@ -8,7 +8,6 @@ before_script:
   - touch env/google_api.json
 
 script:
-  - npm run lint
   - npm run build
 
 notifications:

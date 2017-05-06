@@ -2,8 +2,6 @@ machine:
   timezone: Asia/Tokyo
   node:
     version: 6.7.0
-  post:
-    - npm install -g npm@3
 
 dependencies:
   pre:
@@ -13,6 +11,5 @@ dependencies:
 
 test:
   override:
-    - npm run lint
     - npm run build
     - exit 0
