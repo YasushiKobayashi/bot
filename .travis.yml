@@ -5,6 +5,7 @@ node_js:
 before_script:
   - npm i -g yarn
   - yarn
+  - touch env/google_api.json
 
 script:
   - npm run lint

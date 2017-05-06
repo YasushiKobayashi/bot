@@ -7,7 +7,10 @@ machine:
 
 dependencies:
   pre:
-    - npm install
+    - npm i -g yarn
+    - yarn
+    - touch env/google_api.json
+
 test:
   override:
     - npm run lint
