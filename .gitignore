@@ -16,7 +16,8 @@ vendor
 node_modules
 
 *-bot/
-env/
+env/*
+!.gitkeep
 
 .hubot_history
 js/
