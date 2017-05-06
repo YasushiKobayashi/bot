@@ -1,4 +1,4 @@
-const exec = require('child_process').exec;
+import { exec } from 'child_process';
 
 module.exports = (robot) => {
   const sendMessage = (channel, message) => {
@@ -7,9 +7,7 @@ module.exports = (robot) => {
 
   const shell = (command, room, env) => {
     return exec(command, (error, stdout, stderr) => {
-      const messege = (error) ? error :
-        (stderr) ? stderr :
-        `${env} デプロイしたよー`;
+      const messege = error ? stderr : `${env} デプロイしたよー`;
       sendMessage(room, messege);
     });
   };

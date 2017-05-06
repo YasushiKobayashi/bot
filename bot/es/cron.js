@@ -1,6 +1,6 @@
 import { CronJob } from 'cron';
 import analytics from '../../js/analytics';
-import envKey from '../../env/slack';
+import envKey from '../../env/slack.json';
 
 const viewId = envKey.blog_view_id;
 
@@ -18,12 +18,9 @@ module.exports = (robot) => {
 
   const analyticsCron = (timing, type) => {
     new CronJob(timing, () => {
-      console.log('start');
       return new Promise((resolve, reject) => {
-        console.log('promise');
         analytics(type, media, viewId)
         .then((result) => {
-          console.log(result);
           resolve(sendMessage('#analytics', result));
         })
         .catch((err) => {
@@ -47,7 +44,7 @@ module.exports = (robot) => {
     time: '今月',
   };
 
-  analyticsCron('*/5 * * * * *', today);
+  analyticsCron('0 15 11 * * *', today);
   analyticsCron('0 35 11 * * *', week);
   analyticsCron('0 55 11 * * *', month);
 };

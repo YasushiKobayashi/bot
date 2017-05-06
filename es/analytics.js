@@ -74,13 +74,4 @@ const analytics = (type, media, viewId) => {
    });
   });
 };
-// const today = {
-//   startDate: '1daysAgo',
-//   time: '昨日',
-// };
-// const media = {
-//   type: 'blog',
-//   url: 'https://yasushikobayashi.info',
-// };
-// console.log(analytics(today, media, '79127044'));
 module.exports = analytics;
